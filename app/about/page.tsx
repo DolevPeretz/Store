@@ -1,5 +1,7 @@
-const AboutPage = () => {
-  return <div>AboutPage</div>;
+import db from "../../utils/db";
+
+const AboutPage = async () => {
+  return <div></div>;
 };
 
 export default AboutPage;

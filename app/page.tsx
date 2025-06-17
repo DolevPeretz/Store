@@ -1,11 +1,14 @@
 import Hero from "@/components/home/Hero";
-import { Button } from "@/components/ui/button";
 import FetureProducrs from "@/components/home/FetureProducrs";
+import { Suspense } from "react";
+import LoadingContainer from "@/components/global/LoadingContainer";
 const HomePage = () => {
   return (
     <>
       <Hero />
-      <FetureProducrs />
+      <Suspense fallback={<LoadingContainer />}>
+        <FetureProducrs />
+      </Suspense>
     </>
   );
 };

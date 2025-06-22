@@ -1,7 +1,7 @@
 import { featchFeatcherProducts } from "@/utils/actions";
 import EmptyList from "../global/EmptyList";
 import SectionTitle from "../global/SectionTitle";
-import ProductsGrid from "../products/ProductGird";
+import ProductsGrid from "../products/ProductsGird";
 
 async function FeaturedProducts() {
   const products = await featchFeatcherProducts();

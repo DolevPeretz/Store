@@ -8,8 +8,14 @@ export const featchFeatcherProducts = async () => {
   });
   return products;
 };
-export const featchAllProducts = () => {
+export const featchAllProducts = ({ search = "" }: { search: string }) => {
   return db.product.findMany({
+    where: {
+      OR: [
+        { name: { contains: search, mode: "insensitive" } },
+        { company: { contains: search, mode: "insensitive" } },
+      ],
+    },
     orderBy: {
       createdAt: "desc",
     },

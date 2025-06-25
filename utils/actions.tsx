@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { productSchema, validateWithZodSchema, imageSchema } from "./schemas";
 import { uploadImage, deleteImage } from "./supabase";
 import { revalidatePath } from "next/cache";
+import { auth } from "@clerk/nextjs/server";
 
 const getAuthUser = async () => {
   const user = await currentUser();
@@ -238,3 +239,42 @@ export const fetchUserFavorites = async () => {
   });
   return favorites;
 };
+export const createReviewAction = async (
+  prevState: any,
+  formData: FormData
+) => {
+  return { message: "review submitted successfully" };
+};
+
+export const fetchProductReviews = async () => {};
+export const fetchProductReviewsByUser = async () => {};
+export const deleteReviewAction = async () => {};
+export const findExistingReview = async () => {};
+export const fetchProductRating = async () => {};
+
+export const fetchCartItems = async () => {
+  const { userId } = await auth();
+  const cart = await db.cart.findFirst({
+    where: {
+      clerkId: userId ?? "",
+    },
+    select: {
+      numItemsInCart: true,
+    },
+  });
+  return cart?.numItemsInCart || 0;
+};
+
+const fetchProduct = async () => {};
+
+export const fetchOrCreateCart = async () => {};
+
+const updateOrCreateCartItem = async () => {};
+
+export const updateCart = async () => {};
+
+export const addToCartAction = async () => {};
+
+export const removeCartItemAction = async () => {};
+
+export const updateCartItemAction = async () => {};

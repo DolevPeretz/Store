@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LuShoppingCart } from "react-icons/lu";
 
 async function CartButton() {
-  const numItemInCart = 9;
+  const numItemInCart = 0;
   return (
     <Button
       asChild
